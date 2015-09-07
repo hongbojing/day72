@@ -1,13 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>day #</title>
-  <link rel="stylesheet" href="css/myStyle.css">
-  <link rel="stylesheet" href="css/anotherstyle.css">
+    <meta charset="UTF-8">
+    <title>day #</title>
+    <link rel="stylesheet" href="css/myStyle.css">
+    <link rel="stylesheet" href="css/anotherstyle.css">
 </head>
-<body>
+<body ng-app="myApp">
+    <div ng-controller = "ServiceController as ServiceCtrl">
+        <label for="username">Type in a github username</label>
+    </div>
+    <input type="text" ng-model="ServiceCtrl.username" placeholder="Enter a github username"/>
+    <ul>
+        <li ng-repeat="event in ServiceCtrl.events">
+            {{event.actor.login}}
+            {{event.repo.name}}
+        </li>
+    </ul>
 
 <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<script src="js/lib/angular/angular.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/services/service.js"></script>
 </body>
 </html>
